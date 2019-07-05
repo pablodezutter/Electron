@@ -17,10 +17,26 @@
       console.log(process);
       let output = `
       <h2 class="page-header">App Version Data</h2>
-      
-      
-      
+      <ul class="collection">
+        <li class="collecton-item">Node: ${process.versions.node}</li>
+        <li class="collecton-item">Electron: ${process.versions.electron}</li>
+        <li class="collecton-item">Chrome: ${process.versions.chrome}</li>
+        
+        </ul>
+
+        <h2 class="page-header">System SPecs</h2>
+        <ul class="collection">
+        <li class="collecton-item">System Architecture: ${process.arch}</li>
+        <li class="collecton-item">Processor Identifier: ${
+          process.env.PROCESSOR_IDENTIFIER
+        }</li>
+        <li class="collecton-item">Printer: ${process.env.PRINTER}</li>
+        
+        </ul>
+          
       `;
+
+      document.getElementById("output").innerHTML = output;
     </script>
     <script>
       require("./renderer.js");
