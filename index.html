@@ -16,24 +16,51 @@
     <script>
       console.log(process);
       let output = `
+
+      <h2 class="page-header">Computer Info</h2>
+      <ul class="collection">
+        <li class="collecton-item">Computer Name: ${process.env.USERDOMAIN}</li>
+        <li class="collecton-item">User Name: ${process.env.LOGNAME}</li>
+        <li class="collecton-item">Systemdrive: ${process.env.SYSTEMROOT}</li>
+
+        </ul>
+
       <h2 class="page-header">App Version Data</h2>
       <ul class="collection">
         <li class="collecton-item">Node: ${process.versions.node}</li>
         <li class="collecton-item">Electron: ${process.versions.electron}</li>
         <li class="collecton-item">Chrome: ${process.versions.chrome}</li>
-        
+
         </ul>
 
-        <h2 class="page-header">System SPecs</h2>
+        <h2 class="page-header">System Specs</h2>
         <ul class="collection">
         <li class="collecton-item">System Architecture: ${process.arch}</li>
         <li class="collecton-item">Processor Identifier: ${
           process.env.PROCESSOR_IDENTIFIER
         }</li>
-        <li class="collecton-item">Printer: ${process.env.PRINTER}</li>
-        
+        <li class="collecton-item">Platform: ${process.env.DESKTOP_SESSION}</li>
+
         </ul>
-          
+
+        <h2 class="page-header">System Memory</h2>
+        <ul class="collection">
+        <li class="collecton-item">System Memory Total: ${
+          process.getSystemMemoryInfo().total
+        }</li>
+        <li class="collecton-item">Free Memory: ${
+          process.getSystemMemoryInfo().free
+        }</li>
+        <li class="collecton-item">Swap Memory Total: ${
+          process.getSystemMemoryInfo().swapTotal
+        }</li>
+        <li class="collecton-item">Swap Memory Free: ${
+          process.getSystemMemoryInfo().swapFree
+        }</li>
+
+        </ul>
+
+
       `;
 
       document.getElementById("output").innerHTML = output;
