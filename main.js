@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -27,8 +27,18 @@ function createWindow() {
     // when you should delete the corresponding element.
     win = null;
   });
-}
 
+  let menu = Menu.buildFromTemplate([
+    {
+      label: "Menu",
+      submenu: [
+        { label: "Adjust Notification Value" },
+        { label: "Adjust Notification Value" },
+        { label: "Adjust Notification Value" }
+      ]
+    }
+  ]);
+}
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
